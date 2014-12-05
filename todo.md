@@ -3,14 +3,18 @@ Members: Jason Sherman, Nicholas Evans, Brandon Sosa, Kevin Stasko
 
 Enhancements Assignments: 
 
-1. new Interface
+1. new Interface - Nick Evans
 
-2. Allow more kinds of searches (< >, pre, in)
+2. Allow more kinds of searches (< >, pre, in) - Kevin Stasko
+    - methods (equalts, greaterThan, lessThan, prefix, isIn)
+    - Junit test = SearchTypeTests.java
 
-3. Allow for combinations of searches
+3. Allow for combinations of searches - Jason Sherman
 
-4. Combinations of searches
+5. return Iterator - Brandon Sosa
 
-5. return Iterator
+
+//Each Junit test can be found in the main directory
+
 
 
