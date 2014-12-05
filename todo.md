@@ -12,6 +12,8 @@ Enhancements Assignments:
 3. Allow for combinations of searches - Jason Sherman
 
 5. return Iterator - Brandon Sosa
+    - Interface = External Iterator, controlled by the search object
+    - Class = Parse implementing the for loop(s) necessary to return an iterator rather than an array of strings
 
 
 //Each Junit test can be found in the main directory
