@@ -10,6 +10,9 @@ Enhancements Assignments:
     - Junit test = SearchTypeTests.java //see src/SearchTypeTests.java for more details
 
 3. Allow for combinations of searches - Jason Sherman
+	- might make a new class called Combine.java or might 	alter the current search.
+	- possible methods: multiSearch, combineResultsAnd, 	combineResultsOr
+	-Junit test: CombineTests.java
 
 5. return Iterator - Brandon Sosa
     - Interface = External Iterator, controlled by the search object
