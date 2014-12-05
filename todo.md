@@ -1,5 +1,5 @@
 Team 1: Final Search Engine Project
-Members: Jason Sherman, Nicholas Evans, Brandom Sosa, Kevin Stasko
+Members: Jason Sherman, Nicholas Evans, Brandon Sosa, Kevin Stasko
 
 Enhancements Assignments: 
 
