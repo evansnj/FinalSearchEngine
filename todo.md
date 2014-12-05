@@ -4,6 +4,11 @@ Members: Jason Sherman, Nicholas Evans, Brandon Sosa, Kevin Stasko
 Enhancements Assignments: 
 
 1. new Interface - Nick Evans
+    - Classes: 
+      - RestfulServer: implements the server
+      - (There may be more)
+    - Methods: search, index (more?)
+    - Tests: test web server starts correctly, search method returns correct JSON, and the index method can add to the db
 
 2. Allow more kinds of searches (< >, pre, in) - Kevin Stasko
     - methods (equalts, greaterThan, lessThan, prefix, isIn)
