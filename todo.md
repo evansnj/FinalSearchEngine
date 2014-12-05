@@ -7,7 +7,7 @@ Enhancements Assignments:
 
 2. Allow more kinds of searches (< >, pre, in) - Kevin Stasko
     - methods (equalts, greaterThan, lessThan, prefix, isIn)
-    - Junit test = SearchTypeTests.java
+    - Junit test = SearchTypeTests.java //see src/SearchTypeTests.java for more details
 
 3. Allow for combinations of searches - Jason Sherman
 
