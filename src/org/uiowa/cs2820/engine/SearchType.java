@@ -36,3 +36,14 @@ public class SearchType (
           //master.add(a)
     //return master
     }
+      public void prefix( Field n){
+        //ArrayList<Field> master = new ArrayList<Field>()
+        //for(field a in database)
+    
+       //if a.getFieldName().equals(n.getFieldName())
+       
+        //if a.getFieldValue().substring(0, n.getFieldValue().length()) == n.getFieldValue()
+            //master.add(a);
+            
+      //return master
+      }
