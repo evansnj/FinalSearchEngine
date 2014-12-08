@@ -1,11 +1,22 @@
 package org.uiowa.cs2820.engine;
 
 public class AllocateTest {
+  ArrayList<Field> DB = new ArrayList<Field>();
+  
 //create a relatively elaborate database
   DB.add("Name", "Kevin")
   DB.add("Part", "Axel");
   DB.add("Part", "Box");
   DB.add("Part", "Gear");
+  DB.add("Animal", "Fox");
+  DB.add("Place", "Chicago");
+  DB.add("Part", "Wheel");
+  DB.add("Name", "Nicholas");
+  DB.add("Animal", "Zebra");
+  Db.add("Part","Lens");
+  
+  
+  
   ...
 //create other entries that include numbers as well as strings in Field values
   DB2.add("Serial",0123);
