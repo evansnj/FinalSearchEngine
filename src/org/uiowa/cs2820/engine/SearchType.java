@@ -14,7 +14,7 @@ public class SearchType (
     //return master
   }
   
-  public void lessThan ( Field n){
+  public void lessThan( Field n){
     //ArrayList<Field> master = new ArrayList<Field>()
     //for(field a in database)
     
@@ -25,3 +25,14 @@ public class SearchType (
           //master.add(a)
     //return master
   }
+    public void equals( Field n){
+      //ArrayList<Field> master = new ArrayList<Field>()
+      //for(field a in database)
+    
+      //if a.getFieldName().equals(n.getFieldName()
+        //int flag = a.getFieldValue().compareTo(n.getFieldValue())
+        
+        //if flag == 0
+          //master.add(a)
+    //return master
+    }
