@@ -1,6 +1,6 @@
-package src.org.uiowa.cs2820.engine;
+package org.uiowa.cs2820.engine;
 
-public class CombineTest {
+public class ComboSearchTest {
 
 	//create a relatively elaborate database
 	  //Database.add("Part", "Axel");
