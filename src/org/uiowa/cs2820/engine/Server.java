@@ -46,7 +46,7 @@ public class Server {
     	FieldSearch fs = new FieldSearch(f);
     	String[] s = fs.findEquals();
     	String results = Arrays.toString(s);
-    	System.out.println(results);
+//    	System.out.println(results);
     	return Response //TODO: change to a useful response
     			.status(200)
     			.entity("search query: " + params.toString() +
@@ -61,21 +61,30 @@ public class Server {
     @PUT
     @Path("index")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void index(
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response index(
     		@FormParam("id") String id,
     		@FormParam("field") String fields) {
+    	
     	// Extract index text from querystring
     	List<String> params = Arrays.asList(fields.split("\\s+"));
-    	System.out.println(id);
-    	System.out.println(params.toString());
+    	
+    	// Crude validation for parameters
+    	Boolean invalidParams = ((params.size() % 2) != 0);
+    	Boolean missingId = (id.length() == 0);
+    	if (invalidParams || missingId ) {
+    		return Response.status(400).entity("Invalid form data submitted.").build();
+    	}
+    	
+//    	System.out.println(id);
+//    	System.out.println(params.toString());
+    	// Index the new object
     	Field f = new Field(params.get(0), params.get(1)); //TODO: limit q terms to 2
     	Indexer I = new Indexer(id);
     	I.addField(f);
-    	FieldSearch fs = new FieldSearch(f);
-    	Boolean b = fs.findEquals().length > 0;
-    	if (b == true) {
-    		System.out.println("Object added to database");
-    	}
+    	return Response
+    			.status(201)
+    			.entity("Object added to database").build();
     }
 }
 
