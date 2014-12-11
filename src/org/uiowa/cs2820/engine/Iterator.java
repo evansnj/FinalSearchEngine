@@ -86,7 +86,7 @@ public class LinkedStack<S> implements Search<S>{
     }
 }
 //The searching iterator implemented by the linked stack
-Search<String> stack = new ReturnedSearch<String>();
+Search<String> stack = new LinkedStack<String>();
         i = stack.iterator();
         while (i.hasNext()){
         String element = i.next()
