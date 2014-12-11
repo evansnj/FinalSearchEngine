@@ -10,8 +10,8 @@ public class SearchType {
     
     	if (a.getFieldName().equals(n.getFieldName())){
         
-        if (a.getFieldName().compareTo(n.getFieldName() == 1)){
-          master.add(a);
+        	if (a.getFieldName().compareTo(n.getFieldName() > 0)){
+        		master.add(a);
         	}
     	}
     }
@@ -22,11 +22,11 @@ public class SearchType {
 	  ArrayList<Field> master = new ArrayList<Field>();
 	  for(Field a : database){   	
 	    
-		  if (a.getFieldName().equals(n.getFieldName())){
+		if (a.getFieldName().equals(n.getFieldName())){
 	        
-	      if (a.getFieldName().compareTo(n.getFieldName() == -1)){
-	    	  master.add(a);
-	      	  }
+	      		if (a.getFieldName().compareTo(n.getFieldName() < 0)){
+	    	  		master.add(a);
+	      	  	}
 		  }
 	  }
 	  return master;
@@ -36,17 +36,17 @@ public class SearchType {
 	  ArrayList<Field> master = new ArrayList<Field>();
 	  for(Field a : database){   	
 	    
-		  if (a.getFieldName().equals(n.getFieldName())){
+		if (a.getFieldName().equals(n.getFieldName())){
 	        
-	      if (a.getFieldName().compareTo(n.getFieldName() == 0)){
-	    	  master.add(a);
-	          }
-	      }
+	      		if (a.getFieldName().compareTo(n.getFieldName() == 0)){
+	    	  		master.add(a);
+	          	}
+	      	}
 	  }
 	  return master;
 	  }
   public void prefix( Field n){
-	  ArrayList<Field> master = new ArrayList<Field>()
+	ArrayList<Field> master = new ArrayList<Field>()
       for(Field a : database){
     
     	  if (a.getFieldName().equals(n.getFieldName())){
