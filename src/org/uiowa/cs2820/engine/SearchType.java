@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class SearchType {
   
-  public void greaterThan(Field n){
+  public void greaterThan(Field n, Database D){
     ArrayList<Field> master = new ArrayList<Field>();
-    for(Field a : database){   	
+    for(Field a : D){   	
     
     	if (a.getFieldName().equals(n.getFieldName())){
         
@@ -20,7 +20,7 @@ public class SearchType {
   
   public void lessThan( Field n){
 	  ArrayList<Field> master = new ArrayList<Field>();
-	  for(Field a : database){   	
+	  for(Field a : D){   	
 	    
 		if (a.getFieldName().equals(n.getFieldName())){
 	        
@@ -34,7 +34,7 @@ public class SearchType {
   
   public void equals( Field n){
 	  ArrayList<Field> master = new ArrayList<Field>();
-	  for(Field a : database){   	
+	  for(Field a : D){   	
 	    
 		if (a.getFieldName().equals(n.getFieldName())){
 	        
@@ -47,7 +47,7 @@ public class SearchType {
 	  }
   public void prefix( Field n){
 	ArrayList<Field> master = new ArrayList<Field>()
-      for(Field a : database){
+      for(Field a : D){
     
     	  if (a.getFieldName().equals(n.getFieldName())){
        
