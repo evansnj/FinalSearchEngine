@@ -3,7 +3,7 @@ Members: Jason Sherman, Nicholas Evans, Brandon Sosa, Kevin Stasko
 
 Enhancements Assignments: 
 
-1. new Interface - Nick Evans
+1. REST Interface - Nick Evans
     - Classes: 
       - RestfulServer: implements the server
       - (There may be more)
