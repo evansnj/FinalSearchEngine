@@ -1,16 +1,16 @@
-package src.org.uiowa.cs2820.engine;
+package org.uiowa.cs2820.engine;
 
 import java.util.ArrayList;
 
 public class SearchType {
   
-  public void greaterThan(Field n, Database D){
+  public ArrayList<Field>greaterThan(Field n, ArrayList<Field> D){
     ArrayList<Field> master = new ArrayList<Field>();
     for(Field a : D){   	
     
     	if (a.getFieldName().equals(n.getFieldName())){
         
-        	if (a.getFieldName().compareTo(n.getFieldName() > 0)){
+        	if (a.getFieldName().compareTo(n.getFieldName()) > 0){
         		master.add(a);
         	}
     	}
@@ -18,13 +18,13 @@ public class SearchType {
     return master;
   }
   
-  public void lessThan( Field n){
+  public ArrayList<Field> lessThan(Field n,ArrayList<Field> D){
 	  ArrayList<Field> master = new ArrayList<Field>();
 	  for(Field a : D){   	
 	    
 		if (a.getFieldName().equals(n.getFieldName())){
 	        
-	      		if (a.getFieldName().compareTo(n.getFieldName() < 0)){
+	      		if (a.getFieldName().compareTo(n.getFieldName()) < 0){
 	    	  		master.add(a);
 	      	  	}
 		  }
@@ -32,21 +32,21 @@ public class SearchType {
 	  return master;
   }
   
-  public void equals( Field n){
+  public ArrayList<Field> equals(Field n, ArrayList<Field> D){
 	  ArrayList<Field> master = new ArrayList<Field>();
 	  for(Field a : D){   	
 	    
 		if (a.getFieldName().equals(n.getFieldName())){
 	        
-	      		if (a.getFieldName().compareTo(n.getFieldName() == 0)){
+	      		if (a.getFieldName().compareTo(n.getFieldName()) == 0){
 	    	  		master.add(a);
 	          	}
 	      	}
 	  }
 	  return master;
 	  }
-  public void prefix( Field n){
-	ArrayList<Field> master = new ArrayList<Field>()
+  public ArrayList<Field> prefix( Field n, ArrayList<Field> D){
+	ArrayList<Field> master = new ArrayList<Field>();
       for(Field a : D){
     
     	  if (a.getFieldName().equals(n.getFieldName())){
