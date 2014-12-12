@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.*;
 
 // local Traverser to find a Node with given Field
-class SearchField implements Traverser {
+class SearchField implements Traverser{
   Field f = null;
   Node h = null;
   public SearchField( Field x ) { f = x; } 
@@ -18,6 +18,33 @@ class SearchField implements Traverser {
     }
   }
 
+class SearchFieldGT implements Traverser {
+	Field f = null;
+	Node h = null;
+	public SearchFieldGT(Field x) {f = x;}
+	public boolean process(Item I) {
+		Node F = (Node) I;
+		if (((String) F.Key.getFieldValue()).compareTo((String) f.getFieldValue()) > 0) {
+			h = F;
+			return false;
+		}
+	return true;
+		}	
+	}
+
+class SearchFieldLS implements Traverser {
+	Field f = null;
+	Node h = null;
+	public SearchFieldLS(Field x) {f = x;}
+	public boolean process(Item I) {
+		Node F = (Node) I;
+		if (((String) F.Key.getFieldValue()).compareTo((String) f.getFieldValue()) < 0) {
+			h = F;
+			return false;
+		}
+	return true;
+		}	
+	}
 // local Traverser to find remove Id from all nodes
 class IdRemover implements Traverser {
   ArrayList<Node> empties;  // an array of nodes with no Ids
@@ -97,6 +124,20 @@ public class Node implements Item, Serializable {
     D.traverse(S);  // go through the linked list
     return S.h;     // either null or the found Node
     }
+  
+  public static Node findNodeGT(Field f) {
+	  setup();
+	  SearchFieldGT S = new SearchFieldGT(f);
+	  D.traverse(S);
+	  return S.h;
+  }
+  
+  public static Node findNodeLS(Field f) {
+	  setup();
+	  SearchFieldLS S = new SearchFieldLS(f);
+	  D.traverse(S);
+	  return S.h;
+  }
 
   // save Node to DiskSpace - invoke after changes to Node
   public void save() {
