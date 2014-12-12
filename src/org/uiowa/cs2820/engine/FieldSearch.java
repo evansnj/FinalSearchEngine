@@ -12,4 +12,14 @@ public class FieldSearch {
 	if (R == null) R = new String[0];
 	return R;
 	}
+  public String[] findGT() {
+	  String [] R = D.fetchGT(target);
+	  if (R == null) R = new String[0];
+	  return R;	  
+  	}
+  public String[] findLS() {
+	  String [] R = D.fetchLS(target);
+	  if (R == null) R = new String[0];
+	  return R;
+  	}
   }
