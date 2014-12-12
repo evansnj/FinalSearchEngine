@@ -1,41 +1,66 @@
 package org.uiowa.cs2820.engine;
 import java.util.*;
 
-public class LinkedStack implements Search {
+public class LinkedStack<S> implements Search {
 
-    private Node<S> object;
-    private int size;
-    private int modCount;
+    public Node object;
+    public int size;
+    public int modCount;        //Initial declaration of variables
+    public Node curPos;
+    public int curModCount;
+    public Exception IOException;;
 
-    public LinkedStack() {
+    public LinkedStack(){
         this.object = null;
         this.size = 0;
+
         this.modCount = 0;
     }
 
-    public void push(S element) {
-        this.object = new Node<S>(element, object);
+    public void push(S element){
+        this.object = new Node();
         this.size += 1;
         this.modCount += 1;
     }
 
-    public S pop() {
-        S element = this.object.data;
-        this.items = this.object.next;
+    public Node pop(){
+        Node element = Node.data;
+        this.object = this.next();
         this.size -= 1;
         this.modCount += 1;
         return element;
     }
-
-    public S look() {
-        return this.object.data;
+    public boolean hasNext(){
+        return curPos != null;
     }
 
-    public boolean Empty() {
+    public Node next(){
+        if (! this.hasNext())
+            throw new IllegalStateException();
+        if (this.curModCount != modCount)
+            throw new ConcurrentModificationException();
+        Node data = Node.data;
+        this.curPos = this.next();
+        return data;
+    }
+
+
+    public Node look(){
+        return Node.data;
+    }
+
+    public boolean Empty(){
         return this.size() == 0;
     }
 
-    public int size() {
+    public int size(){
         return this.size;
     }
+    //As promised by the Search interface, the iterator method is implemented here
+    //To satisfy the DIP, the "new" keyword is not used!
+    public Iterator createIterator() {
+        return null;
+    }
+
+
 }

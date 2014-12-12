@@ -1,12 +1,17 @@
 package org.uiowa.cs2820.engine;
+
 import java.util.*;
 
-private class StackIterator implements Iterator{
 
-    private Node curPos;
-    private int curModCount;
+public class StackIterator implements Iterator {
+    public Node curPos;
+    public int curModCount;
+    public Exception IOException;;
+    public Node object;
+    public int size;
+    public int modCount;
 
-    private StackIterator(){
+    public StackIterator(){
         this.curPos = object;
         this.curModCount = modCount;
     }
@@ -14,18 +19,24 @@ private class StackIterator implements Iterator{
     public boolean hasNext(){
         return curPos != null;
     }
-
-    public S next(){
-        if (! this.hasNext()
-        throw new IllegalStateException();
+    public Node next(){
+        if (! this.hasNext())
+            throw new IllegalStateException();
         if (this.curModCount != modCount)
-            throw new ConcurrentModificationException()
-        S data = this.curPos.data;
-        this.curPos = this.curPos.next();
+            throw new ConcurrentModificationException();
+        Node data = Node.data;
+        this.curPos = this.next();
         return data;
     }
 
-    public void remove(){
-        throw IOException();
+
+    public void remove() {
+        try {
+            throw IOException;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
+
 }

@@ -10,17 +10,6 @@ public interface Iterator{
     void remove();
 }
 
-    private class Node<S>{
-
-        private S data;
-        private Node next;
-
-        private Node(S data, Node next){
-            this.data = data;
-            This.next = next;
-        }
-    }
-}
 
 
 
