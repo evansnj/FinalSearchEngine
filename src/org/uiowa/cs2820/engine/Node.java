@@ -45,6 +45,27 @@ class SearchFieldLS implements Traverser {
 	return true;
 		}	
 	}
+
+class SearchFieldPre implements Traverser {
+	Field f = null;
+	Node h = null;
+	public SearchFieldPre(Field x){f = x;}
+	public boolean process(Item I) {
+		Node F = (Node) I;
+		if (((String) F.Key.getFieldValue()).substring(0, (((String) f.getFieldValue()).length())) == f.getFieldValue()){
+			h = F;
+			return false;
+		}
+		return true;
+	}
+}
+	
+	/* if (a.getFieldName().equals(n.getFieldName())){
+       
+    		  if (a.getFieldValue().substring(0, (n.getFieldValue().toString().length())) == n.getFieldValue()){
+    			  master.add(a);
+       			}
+       		}*/
 // local Traverser to find remove Id from all nodes
 class IdRemover implements Traverser {
   ArrayList<Node> empties;  // an array of nodes with no Ids
@@ -135,6 +156,13 @@ public class Node implements Item, Serializable {
   public static Node findNodeLS(Field f) {
 	  setup();
 	  SearchFieldLS S = new SearchFieldLS(f);
+	  D.traverse(S);
+	  return S.h;
+  }
+  
+  public static Node findPrefix(Field f) {
+	  setup();
+	  SearchFieldPre S = new SearchFieldPre(f);
 	  D.traverse(S);
 	  return S.h;
   }
