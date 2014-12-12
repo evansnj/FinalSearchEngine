@@ -28,7 +28,7 @@ public class Server {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String sayHello() {
-    	return "Hello, Jersey!\n";
+    	return "Hello, Jersey!";
     }
     
     // Current state: only uses the first two search terms
@@ -47,13 +47,11 @@ public class Server {
     	String[] s = fs.findEquals();
     	String results = Arrays.toString(s);
 //    	System.out.println(results);
-    	return Response //TODO: change to a useful response
+    	return Response
     			.status(200)
-    			.entity("search query: " + params.toString() +
-    					"\n     results: " + results).build();
+    			.entity(results).build();
     //URL: http://localhost:8080/search?q=not%20riparia
-    //response: "search query: [not riparia]
-    //                results: [1.txt, 4.txt, 0.txt]"
+    //response: "[1.txt, 4.txt, 0.txt]"
     }
     
     // What should be allowed to be indexed?
@@ -76,15 +74,13 @@ public class Server {
     		return Response.status(400).entity("Invalid form data submitted.").build();
     	}
     	
-//    	System.out.println(id);
-//    	System.out.println(params.toString());
     	// Index the new object
     	Field f = new Field(params.get(0), params.get(1)); //TODO: limit q terms to 2
     	Indexer I = new Indexer(id);
     	I.addField(f);
     	return Response
     			.status(201)
-    			.entity("Object added to database").build();
+    			.build();
     }
 }
 
