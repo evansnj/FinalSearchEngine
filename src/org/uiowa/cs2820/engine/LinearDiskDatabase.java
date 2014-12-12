@@ -22,7 +22,12 @@ public class LinearDiskDatabase implements Database {
 	    }
 	  public String[] fetchLS(Field f){
 		  Node n = Node.findNodeLS(f);
-			  if(n==null) return new String[0];
+		  if(n==null) return new String[0];
+		  return Identifier.getAllIds(n.identlist);
+	  	}
+	  public String[] prefix(Field f){
+		  Node n = Node.findPrefix(f);
+		  if(n == null) return new String[0];
 		  return Identifier.getAllIds(n.identlist);
 	  	}
 	  }
