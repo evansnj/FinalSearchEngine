@@ -22,4 +22,9 @@ public class FieldSearch {
 	  if (R == null) R = new String[0];
 	  return R;
   	}
+  public String[] findPrefix() {
+	  String [] R = D.prefix(target);
+	  if(R == null) R = new String[0];
+	  return R;
+  	}
   }
