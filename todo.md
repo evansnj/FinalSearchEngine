@@ -22,7 +22,9 @@ Enhancements Assignments:
 
 5. return Iterator - Brandon Sosa
     - Interface = External Iterator, controlled by the search object
-    - Class = Parse implementing the for loop(s) necessary to return an iterator rather than an array of strings
+    - Class = Parse implementing the for loop(s) necessary to return an iterator rather than an array of strings, implementing
+              the designed interfaces.
+    -Methods: StackedIterator, LinkedStack
     - Tests: test that the correct iterators are returned and that the interface correctly engages with the search object
 
 //Each Junit test can be found in the main directory
