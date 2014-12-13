@@ -6,15 +6,10 @@ public class ComboSearch {
 	String [] R;
 	String [] S;
 	ArrayList<String> T;
-	public ComboSearch(Field f, Field g) { 
-		Database D = new LinearDiskDatabase();
-		Field targeta = f;
-		Field targetb = g;
+	public ComboSearch(String [] input1, String [] input2) { 
+		R = input1;
+		S = input2;
 		T = new ArrayList<String>();
-		R = D.fetch(targeta);
-		if (R == null) R = new String[0];
-		S = D.fetch(targetb);
-		if (S == null) S = new String[0];
 	}
 	public String[] findAnd() {	
 		for (String i : R){

@@ -1,7 +1,9 @@
 package org.uiowa.cs2820.engine;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
 import java.io.*;
 import java.util.*;
 
@@ -88,4 +90,34 @@ public class IntegrationTest {
 	assertEquals(S.length,30);
 	for (String s: S) System.out.println(s);
     } 
-  }
+
+@Test
+public void test4(){
+	Field testera = new Field ("2.txt","l var");
+	Field testerb = new Field ("1.txt","ssp var");
+	FieldSearch F = new FieldSearch(testera);
+	String[] array1 = F.findEquals();
+	FieldSearch G = new FieldSearch(testerb);
+	String[] array2 = G.findGT();
+	ComboSearch A = new ComboSearch (array1,array2);
+	String[] End = A.findAnd();
+	//System.out.print(End.length);
+	assertEquals(End.length,0);
+}
+	
+@Test
+public void test5(){
+	Field testera = new Field ("2.txt","l var");
+	Field testerb = new Field ("1.txt","ssp var");
+	FieldSearch F = new FieldSearch(testera);
+	String[] array1 = F.findEquals();
+	FieldSearch G = new FieldSearch(testerb);
+	String[] array2 = G.findGT();
+	ComboSearch A = new ComboSearch (array1,array2);
+	String[] End = A.findOr();
+	//System.out.print(End.length);
+	assertEquals(End.length,1);
+	
+}
+
+}
