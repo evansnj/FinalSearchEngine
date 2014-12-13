@@ -25,11 +25,6 @@ import org.codehaus.jettison.json.JSONException;
 @Path("/")
 public class Server { 
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String sayHello() {
-    	return "Hello, Jersey!";
-    }
     
     // Current state: only uses the first two search terms
     @GET
