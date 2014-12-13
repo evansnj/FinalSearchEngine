@@ -24,33 +24,29 @@ import org.codehaus.jettison.json.JSONException;
 //Root resource (exposed at "/" path, i.e., at "http://localhost:8080/" )
 @Path("/")
 public class Server { 
-
     
-    // Current state: only uses the first two search terms
+    // Resource for searching the database
     @GET
     @Path("search")
-    @Produces(MediaType.TEXT_PLAIN) //TODO: change to actually useful type
+    @Produces(MediaType.TEXT_PLAIN) 
     public Response search(@QueryParam("q") String q) {
-//    	System.out.println(q);
     	// Extract search terms from querystring
     	List<String> params = Arrays.asList(q.split("\\s+"));
-//    	for (String elem : params) {
-//    		System.out.println(elem);
-//    	}
-    	Field f = new Field(params.get(0), params.get(1)); //TODO: limit q terms to 2
+    	Boolean invalidParams = ((params.size() % 2) != 0);
+    	//Bail if there is not a complete search string
+    	if (invalidParams) {
+    		return Response.status(400).entity("Invalid query submitted.").build();
+    	}
+    	Field f = new Field(params.get(0), params.get(1));
     	FieldSearch fs = new FieldSearch(f);
     	String[] s = fs.findEquals();
     	String results = Arrays.toString(s);
-//    	System.out.println(results);
-    	return Response
-    			.status(200)
-    			.entity(results).build();
-    //URL: http://localhost:8080/search?q=not%20riparia
+    	return Response.status(200).entity(results).build();
+    //URL: http://127.0.0.1:8080/search?q=not%20riparia
     //response: "[1.txt, 4.txt, 0.txt]"
     }
     
-    // What should be allowed to be indexed?
-    // Using a two-string field for now, similar to searching
+    // Resource for indexing new data
     @PUT
     @Path("index")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -58,24 +54,19 @@ public class Server {
     public Response index(
     		@FormParam("id") String id,
     		@FormParam("field") String fields) {
-    	
-    	// Extract index text from querystring
+    	// Extract index text from form submission
     	List<String> params = Arrays.asList(fields.split("\\s+"));
-    	
     	// Crude validation for parameters
     	Boolean invalidParams = ((params.size() % 2) != 0);
     	Boolean missingId = (id.length() == 0);
     	if (invalidParams || missingId ) {
     		return Response.status(400).entity("Invalid form data submitted.").build();
     	}
-    	
     	// Index the new object
-    	Field f = new Field(params.get(0), params.get(1)); //TODO: limit q terms to 2
+    	Field f = new Field(params.get(0), params.get(1));
     	Indexer I = new Indexer(id);
     	I.addField(f);
-    	return Response
-    			.status(201)
-    			.build();
+    	return Response.status(201).build();
     }
 }
 
