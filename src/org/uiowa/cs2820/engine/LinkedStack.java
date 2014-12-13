@@ -17,13 +17,13 @@ public class LinkedStack<S> implements Search {
         this.modCount = 0;
     }
 
-    public void push(S element){
+    public void push(S element){        //Push element S onto the stack
         this.object = new Node();
         this.size += 1;
         this.modCount += 1;
     }
 
-    public Node pop(){
+    public Node pop(){                  //Pop element S from the stack
         Node element = Node.data;
         this.object = this.next();
         this.size -= 1;
@@ -32,13 +32,13 @@ public class LinkedStack<S> implements Search {
     }
     public boolean hasNext(){
         return curPos != null;
-    }
+    }   //Is there a next element?
 
     public Node next(){
         if (! this.hasNext())
             throw new IllegalStateException();
         if (this.curModCount != modCount)
-            throw new ConcurrentModificationException();
+            throw new ConcurrentModificationException();    //Return the next value of the element
         Node data = Node.data;
         this.curPos = this.next();
         return data;

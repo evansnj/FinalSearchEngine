@@ -6,7 +6,7 @@ import java.util.*;
 public class StackIterator implements Iterator {
     public Node curPos;
     public int curModCount;
-    public Exception IOException;;
+    public Exception IOException;;      //Initialize variables
     public Node object;
     public int size;
     public int modCount;
@@ -30,7 +30,7 @@ public class StackIterator implements Iterator {
     }
 
 
-    public void remove() {
+    public void remove() {      //Remove any elements with invalid inputs
         try {
             throw IOException;
         } catch (Exception e) {
